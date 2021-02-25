@@ -29,14 +29,14 @@ class CRM_CivirulesActions_Case_SetDateFieldOnCase extends CRM_Civirules_Action 
 
     if ($isCustomField) {
       if ($date instanceof DateTime) {
-        $params[$field] = $date->format('Ymd');
+        $params[$field] = $date->format('YmdHis');
         $params['entity_id'] = $case['id'];
         civicrm_api3('CustomValue', 'create', $params);
       }
     }
     else {
       if ($date instanceof DateTime) {
-        $params[$field] = $date->format('Ymd');
+        $params[$field] = $date->format('YmdHis');
         $params['id'] = $case['id'];
         civicrm_api3('Case', 'create', $params);
       }
